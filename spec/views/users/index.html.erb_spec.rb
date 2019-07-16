@@ -5,13 +5,11 @@ RSpec.describe "users/index", type: :view do
     assign(:users, [
       User.create!(
         :username => "Username",
-        :fullname => "Fullname",
-        :comments => "MyText"
+        :fullname => "Fullname"
       ),
       User.create!(
         :username => "Username",
-        :fullname => "Fullname",
-        :comments => "MyText"
+        :fullname => "Fullname"
       )
     ])
   end
@@ -20,6 +18,5 @@ RSpec.describe "users/index", type: :view do
     render
     assert_select "tr>td", :text => "Username".to_s, :count => 2
     assert_select "tr>td", :text => "Fullname".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
   end
 end
